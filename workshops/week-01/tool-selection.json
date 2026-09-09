@@ -1,0 +1,70 @@
+{
+  "tool": "Codex",
+  "provider": "OpenAI",
+  "evaluation_date": "2026-09-09",
+  "models": {
+    "available": [
+      {
+        "model_id": "current Codex session model",
+        "description": "General agentic work that combines research, local file inspection, structured writing, and editing.",
+        "tier": "reasoning",
+        "tested": true,
+        "notes": "I used this model for regulatory reasoning, source verification, markdown tables, JSON, and diagram analysis. The interface did not expose the exact backend model identifier or context limit."
+      },
+      {
+        "model_id": "gpt-5.6-terra",
+        "description": "A balanced agentic coding model available as an alternate model in this environment.",
+        "tier": "standard",
+        "tested": false,
+        "notes": "I did not run the same Workshop 1 prompts on this model, so I cannot claim a direct quality comparison."
+      }
+    ],
+    "reasoning_chain_test": {
+      "model_used": "current Codex session model",
+      "prompt": "Under NRC regulations, an adversary manipulates data at the OT-SIEM export layer so ICT-SIEM analysts see normal alerts while the actual OT environment is under attack. What are the regulatory implications of this detection gap for the licensee's cybersecurity program under RG 5.71?",
+      "observation": "The response did not expose private chain-of-thought. Its evidence summary separated RG 5.71 guidance from the binding requirements in 10 CFR 73.54 and 10 CFR 73.77. It also avoided claiming a definite reporting deadline because the prompt did not establish whether an SSEP function was adversely affected or when the event was discovered.",
+      "nuclear_relevance": "Nuclear regulatory work requires a reviewer to see the source, assumptions, and decision points. A concise reasoning summary is useful, but I still need to verify the cited rule text because a plausible explanation is not regulatory evidence."
+    },
+    "vision_test": {
+      "model_used": "current Codex session model",
+      "image_used": "Full CS 581 Plant Architecture Diagram from the published course page",
+      "observation": "The model identified all 11 visible systems, the direct one-way OT-SIEM to ICT-SIEM export, the other labeled system connections, arrow direction, and the Level 4 through Level 0 bands. It did not invent a protocol for the ICT-SIEM connection. The four short marks in Level 0 remained ambiguous because they align with Level 1 systems but do not visibly reach the system boxes.",
+      "nuclear_relevance": "Vision is useful for an initial review of architecture diagrams and visible data paths. I would manually verify faint lines, arrow direction, boundary symbols, and every inferred protocol before using the result in a nuclear security assessment."
+    },
+    "model_selection_guide": "Use the current reasoning model for source comparison, regulatory ambiguity, and multi-file assignments. Use gpt-5.6-terra for routine drafting or file work after testing it on the same prompt. Do not choose a model only by its name when the interface does not expose the exact backend or a controlled comparison."
+  },
+  "capabilities": {
+    "thinking_and_reasoning": {
+      "supported": true,
+      "notes": "Codex completed multi-step regulatory and architecture analysis, but it did not expose private chain-of-thought. The useful output was a source-based reasoning summary with assumptions and uncertainty. I learned to ask for decision points and citations instead of hidden internal reasoning."
+    },
+    "context_length": {
+      "tokens": null,
+      "notes": "The exact token limit was not available in the session. Codex kept the course prompt, NIST SP 800-82 Rev. 3, NRC RG 5.71 findings, several markdown files, and the diagram analysis in context. Long sources still needed targeted section searches instead of assuming the whole document remained equally available."
+    },
+    "function_calling": {
+      "supported": true,
+      "notes": "I tested web access, local file inspection, image rendering and viewing, patch-based editing, and shell validation. Web results included links, but I still checked the primary documents because search summaries were not enough for section-level regulatory claims."
+    },
+    "structured_output": {
+      "supported": true,
+      "notes": "Codex produced markdown tables, structured correction entries, and JSON. The first tool-selection file still contained placeholders and used the wrong shape for the models field, so structure required a second review against the official template."
+    },
+    "vision_multimodal": {
+      "supported": true,
+      "notes": "I tested the full plant architecture diagram. Codex correctly read system labels, arrows, one-way symbols, and zone bands. It treated the Level 0 marks as uncertain and did not convert them into unsupported direct connections."
+    },
+    "mcp_integration": {
+      "supported": true,
+      "notes": "The environment supports MCP resources and configured external integrations. I did not use an MCP server for a graded factual claim in Workshop 1, so this capability remains available but was not meaningfully tested here."
+    },
+    "provenance_trust": {
+      "provider": "OpenAI",
+      "us_based": true,
+      "data_handling": "OpenAI states that business product and API inputs and outputs are not used for model training by default unless the customer opts in. Personal Codex use may be used for training unless the user disables that setting. See https://openai.com/enterprise-privacy/ and https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan.",
+      "notes": "OpenAI is a US-based provider. I will use Codex only with public course sources and non-sensitive work unless a licensee or employer has approved the account, retention settings, connected services, and data-handling terms. Public-source suitability does not make the tool appropriate for safeguards information, security-related information, export-controlled material, or facility-confidential data."
+    }
+  },
+  "justification": "Codex fits this course for three tested reasons. First, it compared NIST SP 800-82 Rev. 3 and NRC RG 5.71 and recorded corrections in a structured table. Second, it inspected the plant architecture diagram without inventing an ICT-SIEM protocol. Third, it created and revised multiple local markdown and JSON artifacts while keeping source and confidence fields visible for review.",
+  "limitations": "Two concrete limitations appeared during Workshop 1. The first attack-surface drafts treated possible facility interfaces, including a data diode, LDAP, REST APIs, and alerting services, with too much confidence. Checking NIST SP 800-82 Rev. 3 and NRC RG 5.71 showed that those sources support controls but do not prove a facility-specific ICT-SIEM configuration. The initial tool-selection.json also retained placeholders and did not match the course template, which showed that generated structured output still needs schema validation. The vision test could not resolve whether the short Level 0 marks were intended as direct connections, so faint diagram details require manual review."
+}
