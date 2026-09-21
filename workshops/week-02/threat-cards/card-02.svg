@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Threat Card 02: Dragonfly</title>
+  <desc id="desc">Nation-state threat card showing a mechanical dragonfly and software crate. No person is depicted.</desc>
+  <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#071a18"/><stop offset="1" stop-color="#10251f"/></linearGradient><style>.sans{font-family:Inter,Arial,sans-serif}.serif{font-family:Georgia,serif}.small{font-size:22px}.body{font-size:25px}.muted{fill:#b9d6cd}.accent{fill:#5eead4}.rule{stroke:#2dd4bf;stroke-width:2}</style></defs>
+  <rect width="900" height="1200" rx="34" fill="url(#bg)"/><rect x="24" y="24" width="852" height="1152" rx="26" fill="none" stroke="#2dd4bf" stroke-width="4"/>
+  <text x="62" y="78" class="sans accent small" letter-spacing="4">THREAT FIELD GUIDE • 02</text>
+  <text x="62" y="148" class="serif" font-size="58" font-weight="bold" fill="#ecfdf5">DRAGONFLY</text>
+  <text x="62" y="190" class="sans muted small">Energetic Bear • Crouching Yeti • Berserk Bear</text><line x1="62" y1="220" x2="838" y2="220" class="rule"/>
+  <text x="62" y="264" class="sans accent small" font-weight="bold">TIER / TYPE</text><text x="254" y="264" class="sans body" fill="white">NATION-STATE</text>
+  <g transform="translate(450 465)" stroke="#99f6e4" fill="none">
+    <rect x="-170" y="78" width="340" height="130" rx="12" stroke-width="8"/><path d="M-170 120h340M0 78v130" stroke-width="5"/>
+    <g stroke-width="9"><ellipse cx="0" cy="-15" rx="25" ry="105"/><circle cy="-125" r="26"/><path d="M-20-60C-210-210-245-20-38 12M20-60C210-210 245-20 38 12M-26 5C-190 25-170 145-20 70M26 5C190 25 170 145 20 70"/></g>
+    <path d="M-58 150h116" stroke="#fb7185" stroke-width="16" stroke-dasharray="18 10"/>
+  </g>
+  <rect x="52" y="690" width="796" height="172" rx="18" fill="#102f2b" stroke="#2dd4bf"/><text x="76" y="730" class="sans accent small" font-weight="bold">SIGNATURE TTP</text><text x="76" y="770" class="sans" font-size="31" fill="white">Supply Chain Compromise</text><text x="76" y="817" class="sans" font-size="34" font-weight="bold" fill="#5eead4">MITRE ICS T0862</text>
+  <text x="62" y="910" class="sans accent small" font-weight="bold">STAT LINE</text><text x="62" y="946" class="sans body" fill="white"><tspan x="62">Trojanized legitimate software packages hosted on</tspan><tspan x="62" dy="32">compromised ICS equipment-provider websites.</tspan></text>
+  <text x="62" y="1030" class="sans accent small" font-weight="bold">PROVENANCE</text><text x="62" y="1063" class="sans" font-size="19" fill="#b9d6cd">MITRE ATT&amp;CK: Dragonfly (G0035), T0862; Symantec, 2014.</text>
+  <text x="62" y="1110" class="sans accent small" font-weight="bold">LIMITS</text><text x="62" y="1141" class="sans" font-size="18" fill="#99f6e4">No evidence establishes compromise of an RMS product or nuclear facility.</text>
+</svg>

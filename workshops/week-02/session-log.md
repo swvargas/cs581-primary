@@ -57,7 +57,7 @@ The `gaps_in_public_knowledge` array received a separate review instead of being
 
 **Duration:** Not recorded
 
-**Outcome:** Created the five card records in `threat-cards/cards.json`.
+**Outcome:** Created the five card records in `threat-cards/cards.json` and five matching SVG card files.
 
 **Prompt focus:** Choose five actors other than TEMP.Veles, cover at least three actor types, give each one distinguishing evidence, and avoid depicting real people.
 
@@ -66,6 +66,8 @@ Codex suggested a broader candidate list. I chose Sandworm Team, Dragonfly, Cybe
 I reviewed each proposed “signature” against the named source. The resulting cards use T1692.001 for Sandworm, T0862 for Dragonfly, T0859 for CyberAv3ngers, T0828 for DarkSide, and T1692.001 for the Maroochy case. I kept CyberAv3ngers as `hacktivist` because that is the persona's public presentation, then separately recorded the government assessment of IRGC affiliation. DarkSide remains criminal rather than Russian state-sponsored. The Vitek Boden card describes the documented case without treating its facts as a generic insider template.
 
 I also changed the RMS lines so none of the cards implies actual RMS targeting. Every entry separates its sourced incident from the hypothetical RMS relevance and includes `what_this_card_cannot_tell_you`. The visual concepts use devices, symbols, or abstract scenes rather than real faces. Codex helped phrase and structure these entries; I chose the actors, checked the classification spread, and required the evidence limits.
+
+I later asked Codex to implement the five designs as SVG because that format keeps the text readable and the source files reviewable. I checked that each card displays the actor, type, signature TTP, MITRE ICS ID, provenance, and a short limits statement. I retained the abstract equipment imagery and the explicit no-person descriptions rather than generating portraits for named or alleged operators.
 
 ## Session 6, September 21 | Role Synthesis and Deliverable Review
 

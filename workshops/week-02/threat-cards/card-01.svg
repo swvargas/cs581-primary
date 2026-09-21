@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Threat Card 01: Sandworm Team</title>
+  <desc id="desc">Nation-state threat card using an abstract sandstorm and electrical substation. No person is depicted.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#29170d"/></linearGradient>
+    <radialGradient id="storm"><stop stop-color="#f59e0b" stop-opacity=".75"/><stop offset="1" stop-color="#92400e" stop-opacity="0"/></radialGradient>
+    <style>.sans{font-family:Inter,Arial,sans-serif}.serif{font-family:Georgia,serif}.small{font-size:22px}.body{font-size:25px}.muted{fill:#d6c6ad}.gold{fill:#fbbf24}.rule{stroke:#b7791f;stroke-width:2}</style>
+  </defs>
+  <rect width="900" height="1200" rx="34" fill="url(#bg)"/>
+  <rect x="24" y="24" width="852" height="1152" rx="26" fill="none" stroke="#d69e2e" stroke-width="4"/>
+  <text x="62" y="78" class="sans gold small" letter-spacing="4">THREAT FIELD GUIDE • 01</text>
+  <text x="62" y="148" class="serif" font-size="58" font-weight="bold" fill="#fff7ed">SANDWORM TEAM</text>
+  <text x="62" y="190" class="sans muted small">ELECTRUM • TeleBots • Voodoo Bear • APT44</text>
+  <line x1="62" y1="220" x2="838" y2="220" class="rule"/>
+  <text x="62" y="264" class="sans gold small" font-weight="bold">TIER / TYPE</text>
+  <text x="254" y="264" class="sans body" fill="white">NATION-STATE</text>
+  <g transform="translate(450 475)">
+    <circle r="190" fill="url(#storm)"/>
+    <path d="M-190 45 C-95-105,95 140,205-45 M-170-20 C-70-165,90 70,180-80 M-120 110 C-20 10,80 160,145 65" fill="none" stroke="#f59e0b" stroke-width="18" stroke-linecap="round" opacity=".72"/>
+    <g stroke="#fff7ed" stroke-width="8" fill="none"><path d="M-90 130V10L0-65 90 10v120M-125 130h250M-72 32h144M0-65v-74M-35-112h70"/><path d="M-54 130V70M0 130V70M54 130V70"/></g>
+  </g>
+  <rect x="52" y="690" width="796" height="172" rx="18" fill="#1f2937" stroke="#b7791f"/>
+  <text x="76" y="730" class="sans gold small" font-weight="bold">SIGNATURE TTP</text>
+  <text x="76" y="770" class="sans" font-size="29" fill="white">Unauthorized Message: Command Message</text>
+  <text x="76" y="817" class="sans" font-size="34" font-weight="bold" fill="#fbbf24">MITRE ICS T1692.001</text>
+  <text x="62" y="910" class="sans gold small" font-weight="bold">STAT LINE</text>
+  <text x="62" y="946" class="sans body" fill="white"><tspan x="62">Used the MicroSCADA SCIL-API in the 2022 Ukraine</tspan><tspan x="62" dy="32">electric-power attack to issue unauthorized substation commands.</tspan></text>
+  <text x="62" y="1030" class="sans gold small" font-weight="bold">PROVENANCE</text>
+  <text x="62" y="1063" class="sans small muted">MITRE ATT&amp;CK: Sandworm Team (G0034); T1692.001.</text>
+  <text x="62" y="1110" class="sans gold small" font-weight="bold">LIMITS</text>
+  <text x="62" y="1141" class="sans" font-size="18" fill="#fde68a">No cited source establishes Sandworm targeting an RMS.</text>
+</svg>
