@@ -1,0 +1,109 @@
+{
+  "target_system": [
+    "RMS"
+  ],
+  "w1_map_reference": "workshops/week-01/attack-surface-map-ot.md",
+  "pivot_path": "No verified attacker pivot from the W1 ICT-SIEM to the W2 RMS is established by the map or cited public reporting. The map describes possible outbound monitoring paths from plant systems toward ICT-SIEM through the Plant historian or PPC event feed, Level 3 security log collector, OT-SIEM export pipeline, and Level 3/4 boundary firewall. Those data paths do not establish reverse connectivity or operational control of an RMS. A correctly implemented unidirectional gateway or data diode would prevent a reverse network pivot. Confidence: assessed. Provenance: Attack Surface Map - ICT Security Information & Event Mgmt (ICT-SIEM) OT Layer, Layer 2 and What This Map Cannot Tell You; CISA/FBI/DOE, AA22-083A, Mitigations, Network Segmentation.",
+  "actor": "TEMP.Veles",
+  "also_known_as": [
+    "XENOTIME"
+  ],
+  "attributed_to": "Public reporting associates the TRITON activity with Russia's Central Scientific Research Institute of Chemistry and Mechanics, or TsNIIKhM. The U.S. Department of Justice alleges that TsNIIKhM employee Evgeny Gladkikh participated in the operation, while Mandiant assessed that a Russian government-owned research institute most likely supported the TRITON operators. These claims do not prove that TEMP.Veles, XENOTIME, TsNIIKhM, and every TRITON operator are identical.",
+  "confidence": "assessed",
+  "provenance": "CISA/FBI/DOE, AA22-083A, Summary and Compromise of Middle East-based Energy Sector Organization with TRITON Malware, page 4; U.S. Department of Justice, Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide, subsection United States v. Evgeny Viktorovich Gladkikh; MITRE ATT&CK, TEMP.Veles, Group G0088, Associated Group Descriptions.",
+  "motivation": {
+    "primary": "Enable disruption or physical damage by compromising industrial safety functions. Confidence: assessed. Provenance: U.S. Department of Justice, Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide, subsection United States v. Evgeny Viktorovich Gladkikh.",
+    "secondary": [
+      "Develop and retain access to energy-sector ICS environments for possible future operations. Confidence: assessed. Provenance: CISA/FBI/DOE, AA22-083A, Summary and Compromise of Middle East-based Energy Sector Organization with TRITON Malware, page 4.",
+      "Research and test capabilities against specialized industrial hardware and software. Confidence: assessed. Provenance: Mandiant, TRITON Attribution: Russian Government-Owned Lab Most Likely Built Custom Intrusion Tools for TRITON Attackers, sections on testing activity and TsNIIKhM."
+    ]
+  },
+  "actor_type": "nation-state",
+  "nuclear_targeting_evidence": "No cited open source establishes that TEMP.Veles targeted a nuclear facility or an RMS. AA22-083A discusses a separate FSB campaign that included nuclear-sector targeting alongside the TsNIIKhM-linked TRITON operation, but the advisory does not establish that these were the same actor or campaign. Applying TEMP.Veles behavior to RMS is therefore an inferred threat-model exercise, not documented nuclear targeting. Confidence: documented. Provenance: CISA/FBI/DOE, AA22-083A, Summary and separate campaign descriptions; MITRE ATT&CK, TEMP.Veles, Group G0088, description and Associated Group Descriptions.",
+  "primary_ttps": [
+    {
+      "tactic": "Collection",
+      "technique": "Adversary-in-the-Middle",
+      "mitre_ics_id": "T0830",
+      "nuclear_relevance": "MITRE records that TEMP.Veles redirected account-related traffic to capture login codes. If comparable privileged access existed in an RMS environment, interception or alteration of communications could affect the confidentiality or integrity of monitoring information; that RMS application is inferred and is not evidence of an actual RMS attack. Provenance: MITRE ATT&CK for ICS, T0830 Adversary-in-the-Middle, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Plant historian or PPC event feed is the specific W1 interface at which altered or redirected RMS-related data might enter the monitoring chain. The map classifies the actual connection as inferred, so this does not establish that the interface exists at a particular facility.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Evasion",
+      "technique": "Indicator Removal on Host",
+      "mitre_ics_id": "T0872",
+      "nuclear_relevance": "During the TRITON operation, TEMP.Veles attempted to return a controller to its prior state and overwrite the malicious program if recovery failed. Comparable removal of evidence from an RMS-connected host is only theoretical because no public source documents TEMP.Veles operating against RMS equipment. Provenance: MITRE ATT&CK for ICS, T0872 Indicator Removal on Host, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Level 3 security log collector is the specific W1 interface that could reveal missing, altered, or discontinuous host records after attempted indicator removal. The map describes this collector and its transport as inferred.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Lateral Movement",
+      "technique": "Lateral Tool Transfer",
+      "mitre_ics_id": "T0867",
+      "nuclear_relevance": "MITRE reports that TEMP.Veles attempted to transfer and execute WMImplant on multiple victim machines. Movement toward an RMS workstation through a connected plant network is inferred; no cited report documents such movement into an RMS. Provenance: MITRE ATT&CK for ICS, T0867 Lateral Tool Transfer, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The OT network monitoring sensor is the specific W1 interface that could observe unusual internal file transfers or repeated tool deployment attempts before related telemetry is exported toward ICT-SIEM. The sensor placement and feed are inferred in the map.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Execution",
+      "technique": "Program Download: Program Append",
+      "mitre_ics_id": "T0843.003",
+      "nuclear_relevance": "TEMP.Veles downloaded multiple rounds of control logic to Triconex SIS controllers through program append operations. Whether any RMS contains a programmable component that supports an equivalent operation is unknown, so application to RMS is theoretical. Provenance: MITRE ATT&CK for ICS, T0843.003 Program Download: Program Append, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Plant historian or PPC event feed is the specific W1 interface that might carry resulting configuration, status, or process anomalies toward ICT-SIEM, but it is not itself established as a controller-programming route. The W1 map classifies this feed as inferred.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Lateral Movement",
+      "technique": "Remote Services",
+      "mitre_ics_id": "T0886",
+      "nuclear_relevance": "MITRE reports that TEMP.Veles used RDP jump boxes, poorly configured OT firewalls, and other backdoors to move into the ICS environment. Comparable movement toward an RMS network segment is inferred and would require connectivity and permissions not established by public sources. Provenance: MITRE ATT&CK for ICS, T0886 Remote Services, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Level 3/4 boundary firewall is the specific W1 interface where unauthorized remote-service traffic or overly broad access rules could be detected. The map does not prove that this boundary permits a route to RMS.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Execution",
+      "technique": "Scripting",
+      "mitre_ics_id": "T0853",
+      "nuclear_relevance": "TEMP.Veles used the PowerShell-based WMImplant tool during the TRITON operation. Script execution on a Windows host supporting RMS monitoring is possible in principle but remains theoretical without evidence about RMS architecture or TEMP.Veles activity against such a host. Provenance: MITRE ATT&CK for ICS, T0853 Scripting, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Level 3 security log collector is the specific W1 interface that could forward process-creation or script-execution records from a monitored plant host. The map does not establish that an RMS host sends those records to the collector.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Impair Process Control",
+      "technique": "Unauthorized Message: Command Message",
+      "mitre_ics_id": "T1692.001",
+      "nuclear_relevance": "TEMP.Veles used TRITON to send unauthorized command messages to Triconex safety controllers. Unauthorized commands affecting RMS configuration, alarm thresholds, or reporting would be consequential, but that application is theoretical because neither compatible RMS equipment nor TEMP.Veles RMS targeting is documented. Provenance: MITRE ATT&CK for ICS, T1692.001 Unauthorized Message: Command Message, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "The Plant historian or PPC event feed is the specific W1 interface through which resulting RMS status or event discrepancies might become visible to ICT-SIEM. This interface would provide evidence, not a verified command path into RMS.",
+      "confidence": "documented"
+    },
+    {
+      "tactic": "Initial Access, Persistence, Privilege Escalation, and Evasion",
+      "technique": "Valid Accounts",
+      "mitre_ics_id": "T0859",
+      "nuclear_relevance": "MITRE reports that TEMP.Veles used valid credentials while moving through RDP jump boxes into the ICS environment. Use of an authorized RMS support or operator account is an inferred scenario, not a documented TEMP.Veles action against RMS. Provenance: MITRE ATT&CK for ICS, T0859 Valid Accounts, Procedure Examples, C0030 Triton Safety Instrumented System Attack.",
+      "system_relevance": "LDAP or Active Directory integration is the specific W1 interface at which compromised or excessively trusted identities could affect access to monitoring functions. The W1 map gives this integration low confidence and does not confirm a trust relationship with RMS.",
+      "confidence": "documented"
+    }
+  ],
+  "historical_precedent": [
+    "In 2017, actors tied by U.S. agencies to TsNIIKhM gained access to a Middle East energy organization and used TRITON against Triconex safety controllers; the activity caused the refinery to shut down for several days. Confidence: documented. Provenance: CISA/FBI/DOE, AA22-083A, Compromise of Middle East-based Energy Sector Organization with TRITON Malware, page 4.",
+    "The Department of Justice alleges that Evgeny Gladkikh and co-conspirators installed TRITON or TRISIS at a foreign refinery, causing two automatic emergency shutdowns, and later attempted to compromise a U.S. company managing similar infrastructure. These are indictment allegations rather than findings of guilt. Confidence: documented. Provenance: U.S. Department of Justice, Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide, subsection United States v. Evgeny Viktorovich Gladkikh.",
+    "MITRE tracks the 2017 activity as the Triton Safety Instrumented System Attack, campaign C0030, and associates TEMP.Veles with the campaign. Confidence: documented. Provenance: MITRE ATT&CK, TEMP.Veles, Group G0088, Campaigns."
+  ],
+  "detection_opportunities": [
+    "Monitor the OT network monitoring sensor and Level 3/4 boundary firewall for unexpected RDP sessions, remote-service use, traffic from unapproved hosts, and transfers between plant hosts. Confidence: assessed. Provenance: MITRE ATT&CK for ICS, T0886 Remote Services and T0867 Lateral Tool Transfer, Detection Strategies; W1 OT map, Layer 2.",
+    "Use the Level 3 security log collector to detect unusual PowerShell execution, repeated tool deployment, log discontinuities, or evidence deletion on monitored hosts. Confidence: assessed. Provenance: MITRE ATT&CK for ICS, T0853 Scripting and T0872 Indicator Removal on Host, Detection Strategies; W1 OT map, Layer 2.",
+    "Compare Plant historian or PPC event feed records with independent RMS indications and expected operating states to identify unexplained changes, missing measurements, or inconsistent event timing. This is an inferred detection opportunity because the facility-specific feed is unconfirmed. Confidence: assessed. Provenance: MITRE ATT&CK for ICS, T0830 Adversary-in-the-Middle, Detection Strategy and M0810 Out-of-Band Communications Channel; W1 OT map, Layer 2.",
+    "Alert on unapproved controller program downloads, program-appending behavior, and unauthorized command messages where RMS-adjacent programmable devices expose such audit data. Applicability to the selected RMS remains unknown. Confidence: assessed. Provenance: MITRE ATT&CK for ICS, T0843.003 Program Download: Program Append and T1692.001 Unauthorized Message: Command Message; CISA/FBI/DOE, AA22-083A, Table 4.",
+    "Correlate authentication activity at LDAP or Active Directory integration with remote-service events and unusual plant-side access, while recognizing that the W1 map does not confirm this identity integration. Confidence: assessed. Provenance: MITRE ATT&CK for ICS, T0859 Valid Accounts, Detection Strategy; W1 OT map, Layer 2."
+  ],
+  "gaps_in_public_knowledge": [
+    "MITRE identifies XENOTIME as an associated group with overlap involving TEMP.Veles and the actors behind TRITON, but warns through its associated-group model that such names are not necessarily exact matches. Open reporting does not expose enough underlying evidence to prove that every activity assigned to these labels came from one organization. Confidence: assessed. Provenance: MITRE ATT&CK, TEMP.Veles, Group G0088, Associated Group Descriptions; MITRE ATT&CK, Groups, explanation of associated groups.",
+    "CISA, the FBI, and DOE report ties between the 2017 TRITON actors and TsNIIKhM, and DOJ alleges that TsNIIKhM employee Evgeny Gladkikh participated. Open sources do not establish the identities, roles, or government direction of every operator tracked as TEMP.Veles. Confidence: assessed. Provenance: CISA/FBI/DOE, AA22-083A, page 4; U.S. Department of Justice, Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide, subsection United States v. Evgeny Viktorovich Gladkikh.",
+    "No cited public report verifies that TEMP.Veles targeted a nuclear facility, radiation monitoring system, radiation data, or any of the three authorities that may consume radiation information. Confidence: documented. Provenance: CISA/FBI/DOE, AA22-083A, separate campaign summaries; MITRE ATT&CK, TEMP.Veles, Group G0088.",
+    "Public reporting does not fully establish the 2017 victim's network architecture, complete initial-access chain, all intermediate systems, or every action taken before TRITON reached the safety controllers. Confidence: assessed. Provenance: CISA/FBI/DOE, AA22-083A, page 4 and Appendix A; MITRE ATT&CK, campaign C0030.",
+    "DOJ alleges that the malware was designed to enable unsafe operation and physical harm, but open reporting does not independently verify the operators' final intended physical outcome at the refinery. Confidence: assessed. Provenance: U.S. Department of Justice, Four Russian Government Employees Charged in Two Historical Hacking Campaigns Targeting Critical Infrastructure Worldwide, subsection United States v. Evgeny Viktorovich Gladkikh.",
+    "The W1 map cannot confirm whether a specific facility connects RMS data to the Plant historian or PPC event feed, Level 3 security log collector, OT-SIEM export pipeline, or ICT-SIEM, nor whether any approved path is bidirectional. Facility architecture and testing records would be required to verify a pivot. Confidence: documented. Provenance: Attack Surface Map - ICT Security Information & Event Mgmt (ICT-SIEM) OT Layer, What This Map Cannot Tell You."
+  ]
+}

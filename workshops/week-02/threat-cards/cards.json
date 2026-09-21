@@ -1,0 +1,127 @@
+[
+  {
+    "card_number": 1,
+    "actor": "Sandworm Team",
+    "aka": [
+      "ELECTRUM",
+      "TeleBots",
+      "Voodoo Bear",
+      "APT44"
+    ],
+    "actor_type": "nation-state",
+    "assessed_affiliation": "Russia's Main Intelligence Directorate (GRU), Unit 74455",
+    "motivation": "Strategic disruption and destructive operations against government and critical infrastructure targets aligned with Russian state objectives.",
+    "sector_targeting": "Electric power, government, and other critical infrastructure, including repeated operations against Ukraine's electricity sector.",
+    "first_observed": "2009",
+    "confidence": "assessed",
+    "signature_ttp": {
+      "technique": "Unauthorized Message: Command Message",
+      "mitre_ics_id": "T1692.001",
+      "stat_line": "Used the MicroSCADA SCIL-API during the 2022 Ukraine electric-power attack to issue unauthorized commands to substation devices.",
+      "confidence": "documented"
+    },
+    "rms_relevance": "An RMS that accepts network commands could face manipulated device behavior or configuration, but no cited source establishes Sandworm targeting an RMS; this connection is theoretical.",
+    "provenance": "MITRE ATT&CK, Sandworm Team (G0034), group description and ICS technique T1692.001 procedure for the 2022 Ukraine Electric Power Attack.",
+    "what_this_card_cannot_tell_you": "The card does not establish that every alias represents exactly the same operators, that Sandworm has targeted an RMS, or that its electric-grid techniques would work unchanged against nuclear radiation-monitoring equipment.",
+    "visual_concept": "A black sandstorm spiraling around an abstract electrical substation sigil; no person, face, portrait, or likeness.",
+    "card_style": "tarot field-guide card"
+  },
+  {
+    "card_number": 2,
+    "actor": "Dragonfly",
+    "aka": [
+      "Energetic Bear",
+      "Crouching Yeti",
+      "Berserk Bear",
+      "Ghost Blizzard"
+    ],
+    "actor_type": "nation-state",
+    "assessed_affiliation": "Russian government cyber activity according to CISA and FBI reporting; vendor naming and group boundaries overlap and are not exact.",
+    "motivation": "Cyberespionage, credential collection, and preparation of access to energy-sector networks and industrial environments.",
+    "sector_targeting": "Energy-sector organizations, ICS equipment providers, and industrial software users.",
+    "first_observed": "2011",
+    "confidence": "assessed",
+    "signature_ttp": {
+      "technique": "Supply Chain Compromise",
+      "mitre_ics_id": "T0862",
+      "stat_line": "Trojanized legitimate software packages hosted on compromised ICS equipment-provider websites.",
+      "confidence": "documented"
+    },
+    "rms_relevance": "Compromised software from an RMS or industrial-monitoring supplier could introduce malicious code into a plant environment, but no cited source establishes Dragonfly targeting RMS products; this connection is theoretical.",
+    "provenance": "MITRE ATT&CK, Dragonfly (G0035), group description; MITRE ATT&CK for ICS, T0862 Supply Chain Compromise, Dragonfly procedure example; Symantec, Dragonfly: Cyberespionage Attacks Against Energy Suppliers, July 7, 2014.",
+    "what_this_card_cannot_tell_you": "The card cannot reconcile every vendor alias or prove that all activity labeled Dragonfly came from one team. It also does not establish compromise of an RMS product or a nuclear facility.",
+    "visual_concept": "A mechanical dragonfly perched on a sealed software crate with a broken integrity stamp; no person, face, portrait, or likeness.",
+    "card_style": "tarot field-guide card"
+  },
+  {
+    "card_number": 3,
+    "actor": "CyberAv3ngers",
+    "aka": [
+      "CyberAveng3rs",
+      "Cyber Avengers"
+    ],
+    "actor_type": "hacktivist",
+    "assessed_affiliation": "CISA, FBI, NSA, EPA, and partner agencies describe CyberAv3ngers as an Iranian Islamic Revolutionary Guard Corps-affiliated cyber persona. The hacktivist actor_type records the persona's public presentation; the assessed state affiliation is recorded separately.",
+    "motivation": "Publicly presented ideological retaliation against Israeli-made technology and symbolic defacement; government reporting assesses an IRGC affiliation.",
+    "sector_targeting": "Internet-exposed Unitronics PLCs and HMIs in water, energy, food and beverage, transportation, healthcare, and other sectors.",
+    "first_observed": "2020",
+    "confidence": "assessed",
+    "signature_ttp": {
+      "technique": "Valid Accounts",
+      "mitre_ics_id": "T0859",
+      "stat_line": "Authenticated to internet-connected Unitronics devices that used default or no passwords, then altered device operation and displayed defacement messages.",
+      "confidence": "documented"
+    },
+    "rms_relevance": "An internet-accessible RMS component retaining default credentials would present a comparable access condition, but no cited source establishes CyberAv3ngers targeting an RMS; this connection is theoretical.",
+    "provenance": "CISA et al., AA23-335A, IRGC-Affiliated Cyber Actors Exploit PLCs in Multiple Sectors, Overview, Background Information, and Threat Actor Activity Against U.S.-Based Unitronics Devices.",
+    "what_this_card_cannot_tell_you": "The card cannot independently verify the IRGC affiliation, determine which public attack claims were genuine, or show that CyberAv3ngers targeted an RMS or nuclear organization.",
+    "visual_concept": "A cracked PLC screen bearing an abstract lightning emblem and an exposed default-password key; no person, face, portrait, or likeness.",
+    "card_style": "tarot field-guide card"
+  },
+  {
+    "card_number": 4,
+    "actor": "DarkSide",
+    "aka": [],
+    "actor_type": "criminal",
+    "assessed_affiliation": "The FBI described DarkSide as a Russia-based cybercrime group operating a ransomware-as-a-service model; this is a criminal classification, not an attribution to the Russian state.",
+    "motivation": "Financial extortion through ransomware and ransom collection.",
+    "sector_targeting": "Organizations across critical-infrastructure sectors, including the energy sector and Colonial Pipeline.",
+    "first_observed": "2020",
+    "confidence": "documented",
+    "signature_ttp": {
+      "technique": "Loss of Productivity and Revenue",
+      "mitre_ics_id": "T0828",
+      "stat_line": "DarkSide ransomware affected Colonial Pipeline's IT network and led to a precautionary operational shutdown; CISA reported no indication that OT was directly affected.",
+      "confidence": "documented"
+    },
+    "rms_relevance": "Ransomware affecting supporting IT or monitoring services could indirectly interrupt RMS data availability or reporting, but the Colonial incident does not demonstrate DarkSide access to OT or RMS equipment; this connection is theoretical.",
+    "provenance": "CISA and FBI, AA21-131A, Darkside Ransomware: Best Practices for Preventing Business Disruption from Ransomware Attacks, Summary; FBI, Statement on Compromise of Colonial Pipeline Networks, May 10, 2021; CISA, FBI, and NSA, AA21-291A, Overview; MITRE ATT&CK for ICS, T0828 Loss of Productivity and Revenue, Colonial Pipeline example.",
+    "what_this_card_cannot_tell_you": "The card does not identify every DarkSide affiliate or prove that DarkSide reached Colonial Pipeline's OT network. CISA and FBI reported no indication that OT was directly affected.",
+    "visual_concept": "A dark pipeline valve wrapped in a padlock chain and interrupted currency waveform; no person, face, portrait, or likeness.",
+    "card_style": "tarot field-guide card"
+  },
+  {
+    "card_number": 5,
+    "actor": "Vitek Boden",
+    "aka": [
+      "Maroochy Water Breach insider"
+    ],
+    "actor_type": "insider",
+    "assessed_affiliation": "Former contractor employee with knowledge of the Maroochy wastewater control system; no state or organized-crime affiliation is established in the cited case study.",
+    "motivation": "Personal grievance and retaliation after employment and contracting disputes, as described in the public case study.",
+    "sector_targeting": "Maroochy Shire wastewater pumping stations and their radio-controlled management system.",
+    "first_observed": "2000",
+    "confidence": "documented",
+    "signature_ttp": {
+      "technique": "Unauthorized Message: Command Message",
+      "mitre_ics_id": "T1692.001",
+      "stat_line": "Used a two-way radio system and engineering knowledge to send false data and instructions to pumping stations and the central computer.",
+      "confidence": "documented"
+    },
+    "rms_relevance": "A knowledgeable insider with authorized knowledge or portable engineering equipment could misuse an RMS maintenance interface, but no cited source connects this actor to an RMS or nuclear facility; this connection is theoretical.",
+    "provenance": "MITRE ATT&CK, Maroochy Water Breach (C0020), campaign dates and ICS technique T1692.001; Marshall Abrams, Malicious Control System Cyber Security Attack Case Study: Maroochy Water Services, Australia, July 23, 2008.",
+    "what_this_card_cannot_tell_you": "The card describes one documented insider incident and cannot establish that the same radio path, engineering access, motive, or control architecture exists in an RMS or nuclear facility.",
+    "visual_concept": "An unmanned radio transmitter sending false waveforms toward abstract pump and sensor symbols; do not depict the named individual or any human figure.",
+    "card_style": "tarot field-guide card"
+  }
+]
