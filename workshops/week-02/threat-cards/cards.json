@@ -11,7 +11,9 @@
     "actor_type": "nation-state",
     "assessed_affiliation": "Russia's Main Intelligence Directorate (GRU), Unit 74455",
     "motivation": "Strategic disruption and destructive operations against government and critical infrastructure targets aligned with Russian state objectives.",
-    "sector_targeting": "Electric power, government, and other critical infrastructure, including repeated operations against Ukraine's electricity sector.",
+    "sector_targeting": [
+      "Electric power, government, and other critical infrastructure, including repeated operations against Ukraine's electricity sector."
+    ],
     "first_observed": "2009",
     "confidence": "assessed",
     "signature_ttp": {
@@ -38,7 +40,9 @@
     "actor_type": "nation-state",
     "assessed_affiliation": "Russian government cyber activity according to CISA and FBI reporting; vendor naming and group boundaries overlap and are not exact.",
     "motivation": "Cyberespionage, credential collection, and preparation of access to energy-sector networks and industrial environments.",
-    "sector_targeting": "Energy-sector organizations, ICS equipment providers, and industrial software users.",
+    "sector_targeting": [
+      "Energy-sector organizations, ICS equipment providers, and industrial software users."
+    ],
     "first_observed": "2011",
     "confidence": "assessed",
     "signature_ttp": {
@@ -63,7 +67,9 @@
     "actor_type": "hacktivist",
     "assessed_affiliation": "CISA, FBI, NSA, EPA, and partner agencies describe CyberAv3ngers as an Iranian Islamic Revolutionary Guard Corps-affiliated cyber persona. The hacktivist actor_type records the persona's public presentation; the assessed state affiliation is recorded separately.",
     "motivation": "Publicly presented ideological retaliation against Israeli-made technology and symbolic defacement; government reporting assesses an IRGC affiliation.",
-    "sector_targeting": "Internet-exposed Unitronics PLCs and HMIs in water, energy, food and beverage, transportation, healthcare, and other sectors.",
+    "sector_targeting": [
+      "Internet-exposed Unitronics PLCs and HMIs in water, energy, food and beverage, transportation, healthcare, and other sectors."
+    ],
     "first_observed": "2020",
     "confidence": "assessed",
     "signature_ttp": {
@@ -85,7 +91,9 @@
     "actor_type": "criminal",
     "assessed_affiliation": "The FBI described DarkSide as a Russia-based cybercrime group operating a ransomware-as-a-service model; this is a criminal classification, not an attribution to the Russian state.",
     "motivation": "Financial extortion through ransomware and ransom collection.",
-    "sector_targeting": "Organizations across critical-infrastructure sectors, including the energy sector and Colonial Pipeline.",
+    "sector_targeting": [
+      "Organizations across critical-infrastructure sectors, including the energy sector and Colonial Pipeline."
+    ],
     "first_observed": "2020",
     "confidence": "documented",
     "signature_ttp": {
@@ -109,7 +117,9 @@
     "actor_type": "insider",
     "assessed_affiliation": "Former contractor employee with knowledge of the Maroochy wastewater control system; no state or organized-crime affiliation is established in the cited case study.",
     "motivation": "Personal grievance and retaliation after employment and contracting disputes, as described in the public case study.",
-    "sector_targeting": "Maroochy Shire wastewater pumping stations and their radio-controlled management system.",
+    "sector_targeting": [
+      "Maroochy Shire wastewater pumping stations and their radio-controlled management system."
+    ],
     "first_observed": "2000",
     "confidence": "documented",
     "signature_ttp": {
