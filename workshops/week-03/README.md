@@ -60,6 +60,7 @@ capture it; a documented failure earns the same credit as a success.
   the finding of the week. W4 is where you design what sits around it.
 
 
+
 ## What we are doing wrong this week, on purpose
 
 This lab has a security posture you should not copy. Some of it is the protocols, which you
