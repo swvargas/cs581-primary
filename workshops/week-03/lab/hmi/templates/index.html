@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RMS Radiation Monitoring</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #07111d; color: #e8f0f7; }
+    main { width: min(960px, 92vw); margin: 3rem auto; }
+    header { display: flex; align-items: baseline; justify-content: space-between; }
+    h1 { margin-bottom: .25rem; }
+    #state { color: #78dba9; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem; margin-top: 2rem; }
+    .card { padding: 1.25rem; border: 1px solid #29445d; border-radius: .75rem; background: #102235; }
+    .label { color: #9db2c4; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; }
+    .value { display: block; margin-top: .5rem; font-size: 2rem; font-weight: 700; }
+    .alarm { border-color: #e34f4f; background: #48191f; }
+    footer { margin-top: 2rem; color: #7890a4; }
+  </style>
+</head>
+<body>
+<main>
+  <header><div><h1>Radiation Monitoring System</h1><span>RMS · Purdue Level 2</span></div><strong id="state">Connecting</strong></header>
+  <section class="grid">
+    <article class="card" id="alarm-card"><span class="label">Alarm state</span><span class="value" id="alarm">--</span></article>
+    <article class="card"><span class="label">Area radiation</span><span class="value"><span id="radiation">--</span> µSv/h</span></article>
+    <article class="card"><span class="label">Count rate</span><span class="value"><span id="count">--</span> CPS</span></article>
+    <article class="card"><span class="label">Detector temperature</span><span class="value"><span id="temperature">--</span> °C</span></article>
+    <article class="card"><span class="label">Alarm threshold</span><span class="value"><span id="threshold">--</span> µSv/h</span></article>
+    <article class="card"><span class="label">Detector health</span><span class="value"><span id="health">--</span>%</span></article>
+  </section>
+  <footer>Live Modbus data · sample <span id="sample">--</span></footer>
+</main>
+<script>
+const ids = Object.fromEntries(["state","alarm","radiation","count","temperature","threshold","health","sample"].map(x => [x, document.getElementById(x)]));
+async function update() {
+  try {
+    const response = await fetch("/api/status", {cache: "no-store"});
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const {process: p} = await response.json();
+    ids.state.textContent = "ONLINE";
+    ids.radiation.textContent = p.area_radiation.toFixed(2);
+    ids.count.textContent = p.count_rate;
+    ids.temperature.textContent = p.detector_temperature.toFixed(1);
+    ids.threshold.textContent = p.alarm_threshold.toFixed(2);
+    ids.health.textContent = p.detector_health;
+    ids.sample.textContent = p.sample_counter;
+    ids.alarm.textContent = p.high_radiation_alarm ? "HIGH RADIATION" : "NORMAL";
+    document.getElementById("alarm-card").classList.toggle("alarm", p.high_radiation_alarm);
+  } catch (error) {
+    ids.state.textContent = "OFFLINE";
+  }
+}
+update(); setInterval(update, 3000);
+</script>
+</body>
+</html>

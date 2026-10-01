@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=%h/lab
+EnvironmentFile=%h/lab/.env
 ExecStart=%h/lab/.venv/bin/python %h/lab/rms_server.py
 Restart=always
 RestartSec=3
