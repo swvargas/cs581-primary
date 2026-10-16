@@ -1,0 +1,15 @@
+[Unit]
+Description=CS581 RMS certificate-authenticated read-only Modbus gateway
+After=network.target plant-rms.service
+Requires=plant-rms.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/lab
+EnvironmentFile=%h/lab/.env
+ExecStart=%h/lab/.venv/bin/python %h/lab/rms_relay.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
