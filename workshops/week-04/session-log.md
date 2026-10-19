@@ -621,3 +621,47 @@ deliverables and addressing the untested backend route remain separate work.
 - Attack A preparation, live execution, and SIEM review: approximately 20 minutes
 - October 14 subtotal: approximately 20 minutes (retrospective estimate)
 - Overall estimated total: approximately 5 hours 45 minutes
+
+## October 18 Completion Review
+
+**Tool:** Codex, assisting Santiago Vargas. Duration not measured; not added to
+the retrospective estimates above. This is a record of tool activity, not a claim
+of a new partner session or the author's personal approval of earlier drafts.
+
+Reviewed the five primary deliverables, the sibling secondary synthesis, W3 source,
+and preserved attack evidence against the supplied Canvas requirements. All six
+required documents already existed. Added an evidence-status index and explicit
+remaining submission decisions rather than presenting missing evidence as complete.
+The historical draft/review warnings remain intact.
+
+**Access-control claim checked:** An authenticated HMI is not evidence of backend
+RBAC. In `../week-03/lab/hmi/app.py`, `_authorized()` checks one shared credential
+pair and decorators protect the two read-only routes. In `rms_server.py`,
+`RadiationProcess.action()` permits a one-register FC6/16 write at offset 3 without
+a numeric-band, caller-role, or approval check. This independently supports the
+existing policy limitation and Attack A interpretation; it does not independently
+verify the deployed revision or current host state. Loopback binding is not
+account isolation. The new check was source-level, not another plant attack.
+
+Fetched only `https://plant.sanctumsec.com/` through the web reader. Its returned
+text describes Purdue ordering, loopback protocol services, and authenticated TLS
+HMIs, but supplies neither an architecture link nor populated live system rows.
+No architecture endpoint was guessed, no peer was contacted, and this response
+does not refresh the October 15 status snapshot. No SSH, SIEM query, point write,
+service operation, credential inspection, or host administration occurred.
+
+Local verification command:
+
+```bash
+nix develop --command bash scripts/test.sh workshops/week-03/lab 'test_*.py'
+```
+
+Result: **31 tests passed in 2.468 seconds**, including four insider guardrail,
+three mocked dependency-wrapper, and 24 gateway tests. Expected rejected TLS
+handshakes produced diagnostic errors while the tests passed. Tests used local
+ephemeral listeners and test certificates; no lab-host service or SIEM was used.
+The Nix command fetched a development dependency locally, not onto the plant.
+
+**Remaining limits:** The original architecture source still needs review; B
+remains Untestable within verified scope; author review cannot be supplied by AI.
+The passing tests do not close these gaps or establish instructor acceptance.
