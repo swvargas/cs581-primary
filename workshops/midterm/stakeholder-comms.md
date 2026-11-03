@@ -1,32 +1,61 @@
 # Stakeholder Communications
 
-<!--
-Write the notes this incident makes you owe other people. Same facts underneath, but each note is
-shaped by what its reader has to decide or do. Do not overstate what the evidence supports in any
-of them. Be explicit about what you can verify now and what you cannot yet.
--->
+**Drafts for the fictional exercise; not sent.** These notes request evidence and decisions, not live-system access or unilateral changes. "Recorded" below means an embedded scenario artifact, not new host verification. Repository paths are root-relative. No classmate is identified as causing the incident.
 
 ## Coordination notes to other current owners
 
-<!--
-Your trace implicates systems other classmates own right now. Write a short note to each owner
-whose system your campaign touched: what you saw that concerns their system, what you need from
-them, and what is still open. Only the owners your trace actually reaches, not the whole class.
--->
+### Ownership check before addressing
 
-### To [owner, current system]
+| System / period | What the available record establishes | Status / source |
+|---|---|---|
+| EDGC, current midterm | Santiago Vargas is responding as owner. | **Scenario-stipulated**, `workshops/midterm/scenario.md:1-5`. |
+| EDGC, successor | Dominick Wheeler inherits EDGC next week. | **Scenario-stipulated**, `workshops/midterm/scenario.md:5`; not an assertion he owns EDGC now. |
+| ICT-SIEM, current midterm | No current named owner was established from available local records. | **Unverified: use placeholder.** Santiago's W1 ICT-SIEM work is historical, not proof of current ownership: `workshops/week-01/attack-surface-map-it.md:3-8`. |
+| RMS, current midterm | W5 says only **"Tamas, incoming owner"**; no supported surname or confirmation of continued current assignment. | **Historical owner-reported lead only; use placeholder.** `workshops/week-05/three-framework-analysis.json:56`; Canvas excerpts were user-pasted, with missing timezones/permalinks: `workshops/week-05/session-log.md:166-170`. |
+| Earlier assignments | Actual W3/W4 artifacts concern Santiago's RMS; W5 handover is Sindi Banda -> Santiago for EDGC. Original W1 plan proposed different W3/W4 systems. | Not a current class roster: `workshops/week-03/session-log.md:6-16`; `workshops/week-04/adversary-test.md:1-16`; `workshops/week-05/RUNBOOK.md:1-6`; `workshops/week-01/sequencing-plan.md:14-20,28-42`. |
 
-<!-- What they need from you, and what you need from them. -->
+**Required from Santiago before replacing placeholders:** Supply the instructor's **rotation/handover announcement or assignment roster effective during the midterm**, specifically **ICT-SIEM -> current student's full name** and **RMS -> current student's full name**. Include exact text or screenshot, post title/author, posting and effective dates, permalink, and superseding corrections. No exact post title/date is identifiable locally; none is invented. If only owner confirmations exist, supply the dated exact replies and distinguish them from the official roster. The two notes below are deliberately not addressed to historical names by assumption.
+
+### To [Current ICT-SIEM Owner - Full Name And Assignment Unverified]
+
+**Subject: Preserve remediation-connector and boundary evidence; draft coordination request.**
+
+The midterm narrative stipulates compromise of an ICT-SIEM remediation connector with lower-zone service-command authority. Artifact B **124102**, **2026-10-29T21:31:02Z**, reports script transfer from **10.40.12.88** to RMS **10.20.15.10**. That makes your system the upstream authority in the supplied trace; this is not evidence that you caused the compromise. A persistent L3-to-L4 log connection alone does not explain reverse commands (`workshops/midterm/scenario.md:3,24`; `workshops/week-02/adversary-profile.json:6`).
+
+Please preserve/provide existing connector version/configuration, enabled response actions, job definitions and command/audit records; service-account identifiers, intended privilege/destination scope, authentication/revocation history and approvals; and boundary rules/flow/session records explaining the L4-to-RMS execution path. Do **not** put passwords, tokens or private keys in the class note. Include originals/custody references, claimed versus receipt/acquisition times, relevant clock status, known logging gaps, and any records already held outside the connector's control. Preserve the interval before **21:31:02Z** through **2026-10-30T04:05Z** and earlier context where available, without claiming that bounds the compromise.
+
+Your response would distinguish the configured response authority from mere log export, identify affected credential/path scope, and inform an authorized targeted-containment decision. Initial connector compromise method, actual executing principal/process, routing/session mechanics, complete scope and first recognition remain unknown. Please identify missing records rather than infer success from no events. Any disabling/revocation/network change needs cybersecurity/administrator and plant-impact approval after safe evidence preservation; this request authorizes none.
+
+### To [Current RMS Owner - Full Name And Assignment Unverified]
+
+**Subject: Preserve staging, log-clearing and outbound-session evidence; draft coordination request.**
+
+Artifact B **124118**, **2026-10-29T21:36:49Z**, reports `/tmp/.edgc_stage` unlinked and transfer log truncated before outbound **TCP/502** to EDGC **10.20.16.10**; the narrative stipulates RMS as the staging point. Artifact A then records EDGC mask/inhibit writes at **21:40:14Z / 21:40:15Z**. Those records do not yet bind a particular RMS process/account/session to each write (`workshops/midterm/scenario.md:3,11-12,25`).
+
+Please preserve/provide existing staging metadata or safely retained copies, file-transfer/job records, process/service/authentication and log-clear/truncation records, relevant logging configuration and privileged-change history, and outbound socket/flow/packet/session evidence if already available. Include destination/port, start/end times, surviving connection identifiers, approved-work context, clock/receipt metadata and independent retained copies. Use approved forensic custody; do not recreate deleted staging files, run scripts, restart services or alter logs to reproduce the event. Preserve context from before the **21:31:02Z** inbound transfer through **2026-10-30T04:05Z**, plus earlier records where relevant.
+
+Your response would resolve whether and how staging/execution connected to the EDGC command path, the scope of credential/file access and evidence loss, and what targeted containment should be reviewed. Missing payload, execution identity, full outbound routing and actual log history remain open. Historical W4 RMS **5061/5062** tests do not prove this fictional TCP/502 route used the tested gateway or that its mitigation contains the incident (`workshops/week-04/adversary-test.md:401-518`). This staging record is not evidence that current radiation values or material accounting changed; W5's older **116180** is a separate event (`workshops/week-05/three-framework-analysis.json:36,56`).
+
+### Decisions outside classmate coordination
+
+These are **proposed role escalations, not messages sent or named appointments**. Shift operations and engineering must decide actual Train A/B availability, safe independent indications, switchyard-maintenance hold/compensatory measures, TS applicability and any approved surveillance/restoration. The cybersecurity lead and system/network/identity administrators must authorize containment while preserving required functions. Authorized regulatory-reporting personnel must determine qualifying recognition/discovery, applicable criteria and notification history; no classmate note substitutes for a required report. Use the sourced, conditional analysis in `workshops/midterm/incident-classification.md` without treating the unresolved safety-clock interpretation or full LCO sequencing as settled.
+
+The trace reaches ICT-SIEM, RMS and EDGC; it does not justify coordination notes to every historical W5 system owner. No new DCS, PSI, protection-system or material movement is established merely because those systems appear in an older workshop chronology (`workshops/week-05/coordinator-narrative.md:4-8`; `workshops/midterm/scenario.md:3,24-26`).
 
 ## Handoff note to your successor
 
-<!--
-Next week this system becomes someone else's. Your scenario names the classmate who inherits it.
-Write them the note you would want if you were walking in cold: the live exposure this incident
-left, what in the runbook they should not trust, and what to watch for first. Separate what you
-have verified from what you are predicting. This is the honest version of a real handover.
--->
+### To Dominick Wheeler, Inheriting EDGC Next Week
 
-### To [successor, inheriting this system]
+**Subject: Unresolved masked readiness and start-air inhibition; evidence-qualified handoff draft.**
 
-<!-- The state of the system as you hand it over, and what you cannot yet confirm about it. -->
+**Last evidence-supported state:** At **2026-10-30T04:05:00Z**, Artifact A reports **40001 Summary_Standby_Ready = 1/NORMAL_READY**, **40009 = 0xFFFF**, **30004 = 0x0008**, identified as start-air inhibit active on Train A and B, and **30006 = 0**. Preceding writes are distinct: mask **FC06 at 2026-10-29T21:40:14Z**, inhibit **FC05 coil 0004 = 1 at 21:40:15Z**. Artifact C describes coil 0004 as live auto-start inhibition on LOOP. These are supplied fictional records, not a new independent physical inspection, and **no later verified recovery state is available** (`workshops/midterm/scenario.md:9-18,32-34`).
+
+**Do not trust these shortcuts:** Summary-normal does not prove standby readiness. The stated masked-fault expression yields zero for raw 0008/mask FFFF, whereas the reported readiness is one; its missing Boolean conversion needs the full source/map, not a guessed fix. Fuel 30006 is explicitly unimplemented/always zero, not proof of depletion or sufficiency. The narrative's zero onset differs from "since service build." Two raw/summary reads, HMI and SIEM echoes from the same controller are not independent physical confirmation. The historical W5 running bit, `/healthz`, loopback 5011/device-1/seven-register map and fuel-percent assumptions must not be silently mapped onto the fictional TCP/502 and new registers (`workshops/midterm/scenario.md:5,15-18,25,33-34`; `workshops/week-05/RUNBOOK.md:82-98,132-149,168-172`).
+
+**First priorities, subject to authority:** Preserve existing evidence and custody/clock metadata without changing the controller. Obtain the approved fictional register/source specification and establish what can be read safely; no endpoint/unit-ID assumptions or new host contact is authorized by this note. Escalate the live-inhibit concern to authorized operations/engineering for independent Train A/B indication and operability assessment, and the upstream connector to the cybersecurity lead/current owners. Request the appropriate maintenance-risk decision. Do not reset, clear inhibits/masks, refill register values, restart services or perform a start test to make the display green. Any disruptive action needs safety/dependency review, approval, preserved state where safe, rollback/abort criteria and authorized validation; urgent safety actions must not be delayed solely for evidence capture (`workshops/week-05/RUNBOOK.md:247-274`; `workshops/midterm/runbook-update.md`, "Controls to add or change").
+
+**Proposed versus completed:** The written runbook update proposes mask/inhibit/raw-summary detections, request-time write auditing, independently retained logging, reviewed write-path restrictions, upstream authority reduction and independent operability gates. **None is claimed implemented or tested for this incident.** Historical W4 gateway testing and the W5 **October 29 04:37:54Z** EDGC outgoing-key revocation/documentation changes occurred in the earlier lab deployment; they do not establish connector containment, changed fictional controller state or clean recovery (`workshops/week-04/adversary-test.md:401-518`; `workshops/week-05/RUNBOOK.md:317-328`). The documents are written outputs only.
+
+**Open operability/reporting questions:** Did the live inhibit actually prevent both trains' credited function, from when, with what redundancy, and in what operating mode? Was impairment continuous? The explicit journal gap is **21:40:15Z -> 03:40:15Z**, six hours, but write-to-discovery is **6h24m45s** and the remaining **24m45s** is not a complete log record. When did someone recognize the qualifying cyber/functional condition, beyond a normal 04:00Z poll? Were any reports already made outside this exercise? The supplied LCO note lacks full mode/entry/sequence rules; do not merge its action times with NRC notification clocks or restart a clock at handover. Authorized reporting personnel must resolve those issues promptly on available evidence, not wait for all classmate replies or final attribution (`workshops/midterm/scenario.md:5,11-18,26,35`; `workshops/midterm/incident-classification.md`, "The clock"). No report is claimed made by this work.
+
+**Evidence/dependencies:** Start with `workshops/midterm/scenario.md`, **Artifacts A-C**; `technical-analysis.md`, **The trace**, **Physical consequence chain**, **What this analysis cannot establish**; `incident-classification.md`, all three framework sections and **The clock**; `runbook-update.md`, **Detections to add** and **Controls to add or change**; and the complete provenance/research history in `session-log.md`. All midterm paths refer to `workshops/midterm/`. Historical comparison sources are `workshops/week-05/RUNBOOK.md` and `three-framework-analysis.json:19-24,37,51-58`; underlying W5 raw backups, inherited EDGC sources and Canvas originals are not all published here (`workshops/week-05/session-log.md:166-172`). Outstanding dependencies are the current roster, ICT-SIEM connector/credential/boundary records, RMS staging/session evidence, full EDGC semantics and independent operations/engineering determinations. No acknowledgement from you, outgoing/current owners or plant roles has yet been obtained in this exchange.
