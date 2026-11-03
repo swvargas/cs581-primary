@@ -502,3 +502,95 @@ Please supply the **instructor's rotation/handover post or roster effective duri
 The runbook distinguishes same-source consistency checks from independent physical confirmation, and requires evidence preservation, authorization, safety review and validation before disruptive containment or restoration. No reset, inhibit clearing, restart or start test is prescribed as a default action.
 
 Recorded both full prompts and this response in `workshops/midterm/session-log.md`, including the correction that the prior technical-analysis final response was a recorded but undelivered draft. `git diff --check` passed. No messages were sent, live systems changed, plant hosts contacted, or operational tests performed.
+
+## Continued Conversation - Package Consistency Review
+
+**Record basis:** Continued actual conversation; no new session boundary, date check, elapsed duration or time-spent estimate asserted.
+**Scope:** Review and editing limited to the four substantive midterm reports and this actual record. No scenario/prior-workshop edits, live-system actions, messages, regulatory notifications or new regulatory retrievals. Existing regulatory sources were audited against the successful/failed retrieval register above, not re-described as newly fetched.
+
+### User Prompt 7 (Full Text)
+
+```text
+Review the four substantive midterm files together and make them a consistent response package.
+
+Edit only:
+- workshops/midterm/incident-classification.md
+- workshops/midterm/technical-analysis.md
+- workshops/midterm/runbook-update.md
+- workshops/midterm/stakeholder-comms.md
+- workshops/midterm/session-log.md for the actual session record
+
+Preserve existing major headings. Do not modify scenario.md or prior workshop artifacts.
+
+Check consistency of:
+- Dates and timestamps
+- System names, ports, registers, and deployment boundaries
+- What is established versus conditional
+- Physical-operability conclusions
+- Regulatory thresholds and clock triggers
+- Proposed versus completed actions
+- Owner identities and evidence requests
+
+Ensure:
+- W1, W2, W4, and W5 are cited explicitly
+- Every regulatory deadline has a successfully retrieved supporting source
+- Every major uncertainty has a proposed evidence request or resolution path
+- Runbook changes address the actual technical findings
+- Stakeholder notes request the evidence needed by the analysis and classification
+
+Remove repetitive drafting notes, but preserve meaningful limitations. Keep prose concise and specific. Do not conceal unresolved issues to make the package sound complete.
+
+After editing, return a list of remaining substantive gaps and record this exchange in session-log.md.
+```
+
+### Assistant Progress Message 12 (Full Text)
+
+I’ll review the four reports as one package, checking shared facts, clock assumptions, action status, and whether each major uncertainty has an evidence request or resolution path. I’ll edit only the permitted files, preserve their major headings, and retain unresolved issues rather than make the package sound complete.
+
+### Assistant Progress Message 13 (Full Text)
+
+The core dates, register meanings, and physical-operability limits agree across the reports. I found four gaps to tighten: an unverified discovery-based safety deadline still has a numeric example, preservation requests stop at discovery despite no verified containment, historical availability lacks an explicit disposition requirement, and nobody is assigned to track the unnamed-owner requests.
+
+I’ll remove the unsupported deadline example, retain the interpretation issue, extend the evidence requests, and add responsibility and resolution paths.
+
+### Review, Corrections And Verification
+
+Read the four reports and the relevant session-log research/delivery record. One initial file read failed because I mistyped the workspace path as `Cybersecurity Nuclear Nuclear Industry`; the corrected read of `technical-analysis.md` succeeded. This was a local path error, not missing report evidence or a regulatory retrieval failure.
+
+Read-only technical/cross-file review identified the request-tracking, retrospective-availability, preservation-window and mask-versus-coil wording issues. A separate read-only regulatory/source audit checked retained intervals against the 18 successful eCFR sources already recorded and recommended removing the numerical discovery-based safety alternative whose interpretive support had not been obtained. No new regulatory retrieval occurred.
+
+Edits made:
+- Classification: shortened source-status logistics while preserving actual retrieval date/status and failed-guidance disclosure; removed the unverified numerical discovery-based safety deadline while retaining the explicit interpretation gap and conditional onset-based calculation; made the common-cause LER functional qualification explicit; distinguished absent supplied call times from proof no calls exist; removed unsupported receipt-time examples and corrected the statement implying every second-precision calculation used the inhibit-write timestamp.
+- Technical analysis: changed continuous-sounding summary wording to the two recorded snapshots; clarified short source-path notation; added G1-G8 with evidence requests and responsible resolution sources, preserving W1/W2/W4/W5 citations and existing limitations.
+- Runbook: separated mask concealment from coil inhibition; clarified decimal function-code notation; shortened repeated disposition prose; separated historical onset/continuity/restoration disposition from present operability and authorized return-to-service.
+- Stakeholder notes: proposed Santiago's request tracking until acknowledged successor transfer and instructor fallback; extended both upstream preservation requests through latest available post-discovery/response records; added explicit role requests for semantics, physical history, licensing/target-set, trigger/report history, interpretation and material facts; shortened duplicated handoff history without claiming any request sent.
+
+Final read-only package review found those issues addressed, G1-G8 matched to stakeholder requests, and no new unsafe authorizations, invented names or completed-action claims. All existing major report headings were retained. `git diff --check` passed before this append; it is checked again afterward. Only permitted report/log files were edited. No runtime/operational tests were performed; document review is not validation of a proposed plant control.
+
+### Assistant Substantive Response 7 (Full Text)
+
+Reviewed and edited all four reports into a consistent package, preserving their major headings and explicit W1, W2, W4 and W5 citations. Recorded the full exchange and corrections in `workshops/midterm/session-log.md`.
+
+Key changes:
+- Removed the unverified numerical discovery-based **safety** deadline, while retaining the unresolved interpretation and conditional onset-based calculation. Retained regulatory intervals trace to previously successful eCFR retrievals; no new retrieval is claimed.
+- Kept mask concealment separate from coil inhibition and snapshot evidence separate from continuous-state claims.
+- Extended upstream preservation requests beyond discovery to subsequent response/containment records.
+- Added a shared **G1-G8 evidence-gap register**, matching stakeholder requests and responsible roles.
+- Assigned proposed request tracking to Santiago until an acknowledged transfer to Dominick, with instructor escalation for unresolved ownership.
+- Separated present operability/return-to-service from retrospective availability, and shortened repetitive handoff/disposition notes.
+
+**Remaining Gaps**
+These remain substantive dependencies, not completed findings. Their resolution paths are in `workshops/midterm/technical-analysis.md`, **Gap register and resolution paths**, and `workshops/midterm/stakeholder-comms.md`, **Decisions outside classmate coordination**.
+
+| Gap | Still needed | Who or what can resolve it |
+|---|---|---|
+| **G1: physical availability** | Independent Train A/B assessment and separate onset, continuity and restoration history, including indeterminate periods. | Authorized operations/engineering; instructor-supplied independent records. |
+| **G2: controller semantics** | Full source/map, summary Boolean conversion, coil coupling and safe read specification; fuel-onset/date clarification. | Instructor/scenario authority and instrumentation/control engineering. |
+| **G3: campaign mechanics** | Connector credential/command scope, RMS staging/process/session evidence, boundary routing and correlation to EDGC writes, including later activity. | Verified current ICT-SIEM/RMS owners and evidence custodians. |
+| **G4: reporting chronology** | Qualifying discovery/recognition, receipt/collection, other-agency contacts, declarations, shutdown and actual report/call history. | Existing acknowledgement, shift, custody and reporting records. |
+| **G5: applicability** | Actual license, credited functions/redundancy, mode, approved analysis, full LCO entry/completion rules, emergency plan and protective-strategy dependencies. | Instructor, engineering and authorized security/reporting personnel. |
+| **G6: safety-clock interpretation** | Authoritative treatment of the latent condition under `50.72(b)(3)(v)`; supplemental NRC guidance retrieval previously failed. | Authorized reporting personnel and authoritative guidance/regulatory clarification. |
+| **G7: owner identities** | Effective midterm roster naming the current ICT-SIEM and RMS owners, plus acknowledged request/handoff responsibility. | Instructor rotation post or roster; dated owner confirmations with provenance. |
+| **G8: safeguards/recovery evidence** | Material applicability/reconciliation if relevant; separately, approved implementation, validation, containment and independent recovery evidence. | Material custodian/instructor; system owners, security administrators and operations/engineering. |
+
+`git diff --check` passed. Scenario and prior workshop artifacts were not modified. No plant connections, operational tests, live changes, stakeholder messages or notifications were performed.
