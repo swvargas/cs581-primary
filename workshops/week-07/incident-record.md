@@ -23,8 +23,10 @@ and who can. -->
 ## Physics check
 
 <!-- Find any reading the plant could not have produced. Show why from first principles
-(energy balance, flow, rate of change) and from a neighboring system's reading of the same
-process. Name the neighbor and the reading. -->
+(energy balance, flow, rate of change) and, where one exists, from a neighboring system's
+reading of the same quantity. Name the neighbor and the reading. If the records establish
+only a disagreement, explain what each source supports and identify the independent
+measurement that would resolve it. -->
 
 ## Interface sheet
 

@@ -31,5 +31,6 @@ Summary page of each other strategy chapter.
 
 ## Rules for the host
 
-Post a change on the W7 Incident thread before you make it. Do not restart a shared service
-to clear an alarm. Preserve before you change.
+Record what you find, and propose any containment, in the W7 Incident discussion. Get my
+approval there before you change a shared service or touch evidence: no restarts, no stopping
+processes, no removing or editing files you did not create. Reading is always fine.
