@@ -70,9 +70,9 @@ These are prioritized assessment candidates, not measured likelihood rankings. V
 
 ## Current CISA ICS advisory — live retrieval
 
-**[ICSA-26-274-01 — Armatura LLC Armatura One](https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01)**, released October 1, 2026, retrieved live November 17 UTC (November 16 MST) using web search and official-page `webfetch`. This is a current retrieved advisory, not necessarily the latest issued by CISA. The first search returned no results and a later Vanderbilt query found an archived 2016 advisory; the log preserves that correction.
+**[ICSA-26-274-01 — Armatura LLC Armatura One](https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-01)**, released October 1, 2026, retrieved live November 17 UTC (November 16 MST) using web search and official-page `webfetch`. This is a current retrieved advisory, not necessarily the latest issued by CISA. The recorded physical-access search returned third-party discussions of Armatura; the targeted CISA ICS search for `pymodbus` returned no results. The official advisory, not those search summaries, is the source for the findings below.
 
-**Fresh retrieval for the follow-up request:** read the full official advisory again on November 17, 2026 UTC (November 16 MST), with a clock check immediately after retrieval at **06:25:02 UTC**. The page shows initial publication **2026-10-01**, revision **1**, dated **2026-10-01**; no later revision is listed. The earlier searches above belong to the earlier session, not this fresh search. Exact new searches and the unsuccessful component search are recorded in [session-log.md](session-log.md#follow-up--fresh-cisa-search-and-official-advisory-retrieval).
+**Retrieval for the follow-up request:** read the full official advisory on November 17, 2026 UTC (November 16 MST), with a clock check immediately after retrieval at **06:25:02 UTC**. The page shows initial publication **2026-10-01**, revision **1**, dated **2026-10-01**; no later revision is listed. Exact searches and the unsuccessful component search are recorded in [session-log.md, §5: Actual CISA searches and official advisory retrieval](session-log.md#5-actual-cisa-searches-and-official-advisory-retrieval).
 
 | Retrieved finding | Exact applicability / interpretation |
 |---|---|
